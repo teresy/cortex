@@ -233,7 +233,7 @@
                                           ;; stop looking for ancestors when: reached another join layer, or reached input (end)
                                           (if (or (= (:type cur) :join)
                                                   (= (:type cur) :input)
-                                                  (= cur nil))
+                                                  (nil? cur))
                                             ancestor-list
                                             (recur (conj ancestor-list cur)
                                                    (get-layer-by-id cortex-desc (get (:parents cur) 0)))))) parent-layers)
